@@ -10,7 +10,7 @@ public class TestUi {
        try{
 		
         String baseUrl = "https://tasteleech.neocities.org";
-        String expectedTitle = "Tasteleech234";
+        String expectedTitle = "Tasteleech";
         String actualTitle = "";
 
         

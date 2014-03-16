@@ -6,8 +6,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TestUi {
 	
 	public void testTitle() {
-       
 		WebDriver driver = new FirefoxDriver();
+       try{
+		
         String baseUrl = "https://tasteleech.neocities.org";
         String expectedTitle = "Tasteleech22";
         String actualTitle = "";
@@ -22,18 +23,14 @@ public class TestUi {
         if (actualTitle.contentEquals(expectedTitle)){
             System.out.println("Test Passed!");
         } else {
-        	//throw new RuntimeException();
-            try{
-            	throw new Exception();
-            }catch(Exception e){
-            	e.printStackTrace();
-            }
+        	throw new RuntimeException();        
         }
        
-        
+       }finally{
+    	System.out.println("grace for me");
         driver.close();
         driver.quit();
-        
+       }
         
     }
 

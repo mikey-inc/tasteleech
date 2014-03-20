@@ -13,6 +13,7 @@ public class TestFunctionality {
 		String testTitle = "Checking login with facebook and fetching of liked songs.";
 		
 		driver.findElement(By.partialLinkText("Click Here To Login and Get Started")).click();
+		Globals.waitForSeconds(4);
 		driver.findElement(By.partialLinkText("Click here to connect your Soundcloud account and complete Step 1")).click();
 		String someTitle = null;
 		for (String handle : driver.getWindowHandles()) {

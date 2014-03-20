@@ -36,7 +36,7 @@ public class TestFunctionality {
 		    	
 		    	/*Waiting like this is not the most efficient way.
 		    	 * I would like to have an improved option here like FluentWait.*/
-		    	Globals.waitForSeconds(8);		    	
+		    	Globals.waitForSeconds(15);		    	
 		    
 		    	int rowCount=driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();		
 				

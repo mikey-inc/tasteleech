@@ -22,6 +22,8 @@ public class TestMain {
 			tu.testTitle(Globals.ffDriver);
 			tf.fbLogin(Globals.ffDriver);
 			tf.checkSeedAddition(Globals.ffDriver);
+			tf.getNewTracks(Globals.ffDriver);
+			
 		}finally{
 			/*If a failure occurs in any of the tests this will safely close the drivers.
 			 * IMPORTANT: Always run the test in your local machine to ensure that the browser window is 

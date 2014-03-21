@@ -65,7 +65,7 @@ public class TestFunctionality {
 			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));		
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
 			
-			Globals.waitForSeconds(5);
+			Globals.waitForSeconds(10);
 							
 			String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");		
 			

@@ -62,7 +62,7 @@ public class TestFunctionality {
 		    if(someTitle.equalsIgnoreCase("Authorize access to your account on SoundCloud - Create, record and share your sounds for free")){
 		    	driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		    	driver.findElement(By.partialLinkText("Sign in with Facebook")).click();
-		    	//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		    	driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		    	driver.findElement(By.id("email")).clear();
 		    	driver.findElement(By.id("email")).sendKeys("dipuranjitsahoo@gmail.com");
 		    	driver.findElement(By.id("pass")).clear();

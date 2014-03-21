@@ -56,19 +56,22 @@ public class TestFunctionality {
 		String testTitle = "Checking effect of clicking on seed songs and button color.";		
 		
 		String colorBeforeClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");
+		System.out.println(colorBeforeClick);
 		//rgba(218, 79, 73, 1) is red
 		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)")){
 			
-			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));		
+			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));
+			System.out.println(cellOne.getText());
 			driver.findElement(By.partialLinkText(cellOne.getText())).click();		
 			
-			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));		
+			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));
+			System.out.println(cellOne.getText());
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
 			
 			Globals.waitForSeconds(10);
 							
 			String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");		
-			
+			System.out.println(colorAfterClick);
 			//rgba(91, 183, 91, 1) is green
 			if(colorAfterClick.equalsIgnoreCase("rgba(91, 183, 91, 1)")){
 				System.out.println("Passed -> "+testTitle);

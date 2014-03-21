@@ -58,7 +58,7 @@ public class TestFunctionality {
 		String colorBeforeClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");
 		System.out.println(colorBeforeClick);
 		//rgba(218, 79, 73, 1) is red
-		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)")){
+		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)") || colorBeforeClick.equalsIgnoreCase("rgba(189, 54, 47, 1)")){
 			
 			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));
 			System.out.println(cellOne.getText());

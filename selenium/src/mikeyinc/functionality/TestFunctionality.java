@@ -244,8 +244,10 @@ public class TestFunctionality {
 		//rgba(218, 79, 73, 1) is red on windows
 		//rgba(189, 54, 47, 1) is red on linux. I am not sure why it sees a different hue of red on linux.
 		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)") || colorBeforeClick.equalsIgnoreCase("rgba(189, 54, 47, 1)")){
-			
-			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));			
+			Globals.waitForSeconds(5);
+			System.out.println("1.1");
+			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));	
+			System.out.println("1.2");
 			driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			
 			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));			

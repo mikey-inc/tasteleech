@@ -278,7 +278,7 @@ public class TestFunctionality {
 			//System.out.println("2.2");
 			
 			
-			Globals.waitForSeconds(20);
+			Globals.waitForSeconds(10);
 			//WebDriverWait wait = new WebDriverWait(driver, 20);
 			//wait.until(ExpectedConditions.textToBePresentInElement(By.linkText("//table[@id='prefList']/tbody/tr[4]/td[4]"), temp));
 			//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));

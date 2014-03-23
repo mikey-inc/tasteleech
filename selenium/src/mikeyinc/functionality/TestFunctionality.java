@@ -248,29 +248,33 @@ public class TestFunctionality {
 			WebDriverWait wait = new WebDriverWait(driver, 20);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]")));
 			System.out.println("1.1");
-			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));
-			driver.findElement(By.partialLinkText(cellFour.getText())).click();
+			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));			
+			//driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			System.out.println("1.2");
+			cellFour.findElement(By.tagName("a")).click();
 			
 			//driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]")));
 			System.out.println("4.1");
 			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));		
 			System.out.println("4.2");
-			driver.findElement(By.partialLinkText(cellOne.getText())).click();		
+			cellOne.findElement(By.tagName("a")).click();
+			//driver.findElement(By.partialLinkText(cellOne.getText())).click();		
 			
 			System.out.println("5.1");
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]")));
 			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));	
 			System.out.println("5.2");
-			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
+			cellTwo.findElement(By.tagName("a")).click();
+			//driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
 			System.out.println("2");
 			
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
 			System.out.println("2.0");
 			WebElement cellThree=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));
 			System.out.println("2.1");
-			driver.findElement(By.partialLinkText(cellThree.getText())).click();
+			cellThree.findElement(By.tagName("a")).click();
+			//driver.findElement(By.partialLinkText(cellThree.getText())).click();
 			System.out.println("2.2");
 			
 			

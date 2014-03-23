@@ -237,17 +237,19 @@ public class TestFunctionality {
 	
 	
 	public void checkSeedAddition(WebDriver driver){
-		//System.out.println("1");
+		System.out.println("1");
 		String testTitle = "Checking effect of clicking on seed songs and button color.";		
 		
 		String colorBeforeClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");		
 		//rgba(218, 79, 73, 1) is red on windows
 		//rgba(189, 54, 47, 1) is red on linux. I am not sure why it sees a different hue of red on linux.
 		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)") || colorBeforeClick.equalsIgnoreCase("rgba(189, 54, 47, 1)")){
-			Globals.waitForSeconds(5);
-			//System.out.println("1.1");
+			//Globals.waitForSeconds(5);
+			WebDriverWait wait = new WebDriverWait(driver, 20);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
+			System.out.println("1.1");
 			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));	
-			//System.out.println("1.2");
+			System.out.println("1.2");
 			driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			
 			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));			
@@ -255,7 +257,7 @@ public class TestFunctionality {
 			
 			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));			
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
-			//System.out.println("2");
+			System.out.println("2");
 			WebElement cellThree=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));
 			String temp = cellThree.getText();
 			driver.findElement(By.partialLinkText(cellThree.getText())).click();

@@ -222,7 +222,7 @@ public class TestFunctionality {
 		    if(someTitle.equalsIgnoreCase("Tasteleech")){		    	
 		    	
 				//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[5]")));
-		    	Globals.waitForSeconds(10);
+		    	Globals.waitForSeconds(20);
 		    	int rowCount=driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();		
 				
 				if(rowCount > 0){

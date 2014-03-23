@@ -139,8 +139,11 @@ public class TestFunctionality {
 		playBtnCell.findElement(By.linkText("Play")).click();		
 		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
+		System.out.println("a.1");
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[6]")));
+		System.out.println("a.2");
 		int prefListCountAfter = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
+		System.out.println("a.3");
 		
 		
 		if(prefListCountAfter == prefListCountBefore + 1){

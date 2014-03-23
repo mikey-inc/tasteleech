@@ -248,7 +248,8 @@ public class TestFunctionality {
 			WebDriverWait wait = new WebDriverWait(driver, 20);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]")));
 			System.out.println("1.1");
-			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));	
+			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));
+			driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			System.out.println("1.2");
 			
 			//driver.findElement(By.partialLinkText(cellFour.getText())).click();
@@ -260,11 +261,13 @@ public class TestFunctionality {
 			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));			
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
 			System.out.println("2");
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
-			WebElement cellThree=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));
-			String temp = cellThree.getText();
-			driver.findElement(By.partialLinkText(cellThree.getText())).click();
 			
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
+			System.out.println("2.0");
+			WebElement cellThree=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));
+			System.out.println("2.1");
+			driver.findElement(By.partialLinkText(cellThree.getText())).click();
+			System.out.println("2.2");
 			
 			
 			Globals.waitForSeconds(20);

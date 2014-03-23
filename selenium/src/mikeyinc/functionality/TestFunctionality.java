@@ -222,7 +222,7 @@ public class TestFunctionality {
 		    if(someTitle.equalsIgnoreCase("Tasteleech")){		    	
 		    	
 				//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[5]")));
-		    	Globals.waitForSeconds(5);
+		    	Globals.waitForSeconds(20);
 		    	int rowCount=driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();		
 				
 				if(rowCount > 0){
@@ -237,7 +237,7 @@ public class TestFunctionality {
 	
 	
 	public void checkSeedAddition(WebDriver driver){
-		
+		System.out.println("1");
 		String testTitle = "Checking effect of clicking on seed songs and button color.";		
 		
 		String colorBeforeClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");		
@@ -253,19 +253,19 @@ public class TestFunctionality {
 			
 			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));			
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
-			
+			System.out.println("2");
 			WebElement cellThree=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));
 			String temp = cellThree.getText();
 			driver.findElement(By.partialLinkText(cellThree.getText())).click();
 			
 			
 			
-			Globals.waitForSeconds(5);
+			Globals.waitForSeconds(20);
 			//WebDriverWait wait = new WebDriverWait(driver, 20);
 			//wait.until(ExpectedConditions.textToBePresentInElement(By.linkText("//table[@id='prefList']/tbody/tr[4]/td[4]"), temp));
 			//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
 			String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");	
-			
+			System.out.println("3");
 			//rgba(91, 183, 91, 1) is green
 			if(colorAfterClick.equalsIgnoreCase("rgba(91, 183, 91, 1)")){
 				System.out.println("Passed -> "+testTitle);

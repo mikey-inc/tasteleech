@@ -18,11 +18,17 @@ public class TestMain {
 		Globals.ffDriver.get(Globals.baseUrl);
 		
 		try{
-			/*call each test one by one like this passing them the driver and/or url.*/
+			/*call each test one by one like this passing them the driver and/or url.*/		
+			
 			tu.testTitle(Globals.ffDriver);
 			tf.fbLogin(Globals.ffDriver);
 			tf.checkSeedAddition(Globals.ffDriver);
 			tf.getNewTracks(Globals.ffDriver);
+			//tf.playTrack(Globals.ffDriver);
+			//tf.skipColumnPlusButton(Globals.ffDriver);
+			//tf.skipColumnMinusButton(Globals.ffDriver);
+			//tf.skipColumnZeroButton(Globals.ffDriver);
+			
 			
 		}finally{
 			/*If a failure occurs in any of the tests this will safely close the drivers.

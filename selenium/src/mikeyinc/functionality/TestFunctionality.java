@@ -221,8 +221,8 @@ public class TestFunctionality {
 		    someTitle = driver.getTitle();
 		    if(someTitle.equalsIgnoreCase("Tasteleech")){		    	
 		    	
-				//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[5]")));
-		    	Globals.waitForSeconds(20);
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[5]")));
+		    	//Globals.waitForSeconds(5);
 		    	int rowCount=driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();		
 				
 				if(rowCount > 0){
@@ -237,7 +237,7 @@ public class TestFunctionality {
 	
 	
 	public void checkSeedAddition(WebDriver driver){
-		System.out.println("1");
+		//System.out.println("1");
 		String testTitle = "Checking effect of clicking on seed songs and button color.";		
 		
 		String colorBeforeClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");		
@@ -245,9 +245,9 @@ public class TestFunctionality {
 		//rgba(189, 54, 47, 1) is red on linux. I am not sure why it sees a different hue of red on linux.
 		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)") || colorBeforeClick.equalsIgnoreCase("rgba(189, 54, 47, 1)")){
 			Globals.waitForSeconds(5);
-			System.out.println("1.1");
+			//System.out.println("1.1");
 			WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));	
-			System.out.println("1.2");
+			//System.out.println("1.2");
 			driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			
 			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));			
@@ -255,7 +255,7 @@ public class TestFunctionality {
 			
 			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));			
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
-			System.out.println("2");
+			//System.out.println("2");
 			WebElement cellThree=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));
 			String temp = cellThree.getText();
 			driver.findElement(By.partialLinkText(cellThree.getText())).click();
@@ -267,7 +267,7 @@ public class TestFunctionality {
 			//wait.until(ExpectedConditions.textToBePresentInElement(By.linkText("//table[@id='prefList']/tbody/tr[4]/td[4]"), temp));
 			//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
 			String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");	
-			System.out.println("3");
+			//System.out.println("3");
 			//rgba(91, 183, 91, 1) is green
 			if(colorAfterClick.equalsIgnoreCase("rgba(91, 183, 91, 1)")){
 				System.out.println("Passed -> "+testTitle);

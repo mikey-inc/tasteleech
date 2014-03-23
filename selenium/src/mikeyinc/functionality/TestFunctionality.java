@@ -254,11 +254,15 @@ public class TestFunctionality {
 			
 			//driver.findElement(By.partialLinkText(cellFour.getText())).click();
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]")));
-			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));			
+			System.out.println("4.1");
+			WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));		
+			System.out.println("4.2");
 			driver.findElement(By.partialLinkText(cellOne.getText())).click();		
 			
+			System.out.println("5.1");
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]")));
-			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));			
+			WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));	
+			System.out.println("5.2");
 			driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
 			System.out.println("2");
 			

@@ -279,7 +279,7 @@ public class TestFunctionality {
 			System.out.println("2.1");
 			cellThree.findElement(By.tagName("a")).click();
 			//driver.findElement(By.partialLinkText(cellThree.getText())).click();
-			//System.out.println("2.2");
+			System.out.println("2.2");
 			
 			
 			Globals.waitForSeconds(10);

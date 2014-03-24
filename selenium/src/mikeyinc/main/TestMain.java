@@ -25,8 +25,8 @@ public class TestMain {
 			tf.checkSeedAddition(Globals.ffDriver);
 			tf.getNewTracks(Globals.ffDriver);
 			tf.playTrack(Globals.ffDriver);
-			//tf.skipColumnPlusButton(Globals.ffDriver);
-			//tf.skipColumnMinusButton(Globals.ffDriver);
+			tf.skipColumnPlusButton(Globals.ffDriver);
+			tf.skipColumnMinusButton(Globals.ffDriver);
 			//tf.skipColumnZeroButton(Globals.ffDriver);
 			
 			

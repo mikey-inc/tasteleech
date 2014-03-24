@@ -27,7 +27,7 @@ public class TestMain {
 			tf.playTrack(Globals.ffDriver);
 			tf.skipColumnPlusButton(Globals.ffDriver);
 			tf.skipColumnMinusButton(Globals.ffDriver);
-			//tf.skipColumnZeroButton(Globals.ffDriver);
+			tf.skipColumnZeroButton(Globals.ffDriver);
 			
 			
 		}finally{

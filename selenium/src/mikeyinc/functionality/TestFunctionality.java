@@ -23,16 +23,19 @@ public class TestFunctionality {
 		float scoreAfterFloat = 0.0f;
 		
 		/*Check score before*/
-		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[15]/td[3]"));
+		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[17]/td[3]"));
 		songTitle = songCell.findElement(By.tagName("a")).getText();		
-		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[15]/td[1]"));
+		//System.out.println(songTitle);
+		//Globals.waitForSeconds(21);
+		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[17]/td[1]"));
 		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
 		scoreBeforeFloat = Float.parseFloat(scoreBefore);
 		/*Click plus button*/
-		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[15]/td[2]/p"));
-		System.out.println("q.1");
+		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[17]/td[2]/p"));
+		//System.out.println("q.1");
 		songCell.findElement(By.linkText("+")).click();
-		System.out.println("q.2");
+		//Globals.waitForSeconds(21);
+		//System.out.println("q.2");
 		/*Check score again*/
 		int playListRowCount = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
 		for(int i = 1;i <= playListRowCount; i++){
@@ -50,8 +53,8 @@ public class TestFunctionality {
 			}
 		}
 		
-		System.out.println(scoreBeforeFloat);
-		System.out.println(scoreAfterFloat);
+		//System.out.println(scoreBeforeFloat);
+		//System.out.println(scoreAfterFloat);
 		
 		if(scoreAfterFloat > scoreBeforeFloat){
 			System.out.println("Passed -> "+testTitle);

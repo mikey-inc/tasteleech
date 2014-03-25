@@ -28,7 +28,7 @@ public class TestMain {
 			tf.skipColumnPlusButton(Globals.ffDriver);
 			tf.skipColumnMinusButton(Globals.ffDriver);
 			tf.skipColumnZeroButton(Globals.ffDriver);
-			
+			tf.genreColumnPlusButton(Globals.ffDriver);
 			
 		}finally{
 			/*If a failure occurs in any of the tests this will safely close the drivers.

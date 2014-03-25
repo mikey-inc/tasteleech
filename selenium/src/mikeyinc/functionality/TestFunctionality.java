@@ -15,6 +15,53 @@ public class TestFunctionality {
 	
 	String songTitle = null;
 	
+	public void genreColumnPlusButton(WebDriver driver){
+		
+		String testTitle = "Checking genre column plus button.";
+		String playlistSongTitle = null;
+		float scoreBeforeFloat = 0.0f;
+		float scoreAfterFloat = 0.0f;
+		
+		/*Check score before*/
+		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[15]/td[3]"));
+		songTitle = songCell.findElement(By.tagName("a")).getText();		
+		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[15]/td[1]"));
+		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
+		scoreBeforeFloat = Float.parseFloat(scoreBefore);
+		/*Click plus button*/
+		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[15]/td[2]/p"));
+		System.out.println("q.1");
+		songCell.findElement(By.linkText("+")).click();
+		System.out.println("q.2");
+		/*Check score again*/
+		int playListRowCount = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
+		for(int i = 1;i <= playListRowCount; i++){
+			WebElement titleCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[3]"));
+			playlistSongTitle = titleCell.findElement(By.tagName("a")).getText();
+			//System.out.println(prefSongTitle);
+			if(playlistSongTitle.equalsIgnoreCase(songTitle)){
+				//System.out.println("found in playlist");
+				WebElement skipCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[1]"));			
+				String scoreAfter = skipCell.findElement(By.tagName("a")).getText();
+				scoreAfterFloat = Float.parseFloat(scoreAfter);
+				//System.out.println("clicked");
+				//Globals.waitForSeconds(1);
+				break;
+			}
+		}
+		
+		System.out.println(scoreBeforeFloat);
+		System.out.println(scoreAfterFloat);
+		
+		if(scoreAfterFloat > scoreBeforeFloat){
+			System.out.println("Passed -> "+testTitle);
+		}else{
+			System.out.println("Error in =>> "+testTitle);
+        	throw new RuntimeException();
+		}
+	}
+	
+	
 	public void skipColumnZeroButton(WebDriver driver){
 		String testTitle = "Checking skip column zero button.";
 		String prefSongTitle = null;

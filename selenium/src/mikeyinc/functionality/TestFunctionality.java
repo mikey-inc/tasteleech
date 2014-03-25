@@ -15,6 +15,23 @@ public class TestFunctionality {
 	
 	String songTitle = null;
 	
+	public void prefListHideButton(WebDriver driver){
+		
+		String testTitle = "Checking Pref List hide button.";
+		
+		int prefListLastRowBefore = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
+		WebElement hideCell=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+prefListLastRowBefore+"]/td[2]"));
+		hideCell.findElement(By.tagName("a")).click();
+		int prefListLastRowAfter = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
+		
+		if(prefListLastRowBefore == prefListLastRowAfter + 1){
+			System.out.println("Passed -> "+testTitle);
+		}else{
+			System.out.println("Error in =>> "+testTitle);
+        	throw new RuntimeException();
+		}		
+	}
+	
 	
 public void genreColumnMinusButton(WebDriver driver){
 		

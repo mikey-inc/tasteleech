@@ -20,8 +20,6 @@ public class TestMain {
 		TestLogin tl = new TestLogin();
 		
 		
-		
-		
 		/*Load home page.*/
 		Globals.ffDriver.get(Globals.baseUrl);
 		
@@ -57,6 +55,8 @@ public class TestMain {
 			Globals.ffDriver.quit();
 		}
 		
+		
+		
 		WebDriver disposableDriver = new FirefoxDriver();
 		try{			
 			disposableDriver.get("http://tasteleech.com");
@@ -67,6 +67,26 @@ public class TestMain {
 			disposableDriver.close();
 			disposableDriver.quit();
 		}
+		
+		
+		
+		int rand = Globals.randInt(1,10);
+		//System.out.println(rand);
+		if(rand == 5){
+			WebDriver soundcloudDriver = new FirefoxDriver();
+			try{			
+				soundcloudDriver.get("http://tasteleech.com");
+				tl.soundcloudLogin(soundcloudDriver);			
+			}catch(Exception e){
+				
+			}finally{
+				soundcloudDriver.close();
+				soundcloudDriver.quit();
+			}
+		}else{
+			System.out.println("INFO: Scoundcloud login skipped this time. It executes once in ten builds because of the captcha problem.");
+		}
+		
 		
 	}
 	

@@ -1,5 +1,7 @@
 package mikeyinc.utilities;
 
+import java.util.Random;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -56,10 +58,16 @@ public class Globals {
 	}
 	
 	/*Generate random number between a range. Range is 1 to max-1.*/
-	public static int generateRandom(int max){		
-		int min = 1;
-		int random = (int)(Math.random() * (max - min)) + min;
-		return random;
+	public static int randInt(int min, int max) {
+
+	    // Usually this can be a field rather than a method variable
+	    Random rand = new Random();
+
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+	    return randomNum;
 	}
 	
 	

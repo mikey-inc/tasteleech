@@ -43,7 +43,7 @@ public class TestUi {
 		
 			driver.findElement(By.linkText("hide instructions")).click();		
 			boolean instsDisplayedAfter = driver.findElement(By.id("collapseOne")).isDisplayed();
-			Globals.waitForSeconds(2);
+			Globals.waitForSeconds(5);
 			if(!instsDisplayedAfter){
 				System.out.println("Passed -> "+testTitle);
 			}else{

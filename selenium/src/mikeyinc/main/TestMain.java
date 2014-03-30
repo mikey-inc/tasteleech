@@ -84,7 +84,7 @@ public class TestMain {
 				soundcloudDriver.quit();
 			}
 		}else{
-			System.out.println("INFO: Scoundcloud login skipped this time. It executes once in ten builds because of the captcha problem.");
+			System.out.println("INFO   -> Scoundcloud login skipped this time. It executes once in ten builds because of the captcha problem.");
 		}
 		
 		

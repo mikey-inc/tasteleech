@@ -45,23 +45,23 @@ public void genreColumnMinusButton(WebDriver driver){
 		float scoreAfterFloat = 0.0f;
 		
 		/*Check score before*/
-		System.out.println("w.1");
+		//System.out.println("w.1");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[7]/td[3]")));
 		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[3]"));
-		System.out.println("w.2");
+		//System.out.println("w.2");
 		songTitle = songCell.findElement(By.tagName("a")).getText();	
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[1]"));
 		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
 		scoreBeforeFloat = Float.parseFloat(scoreBefore);
 		/*Click minus button*/
-		System.out.println("w.3");
+		//System.out.println("w.3");
 		wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[7]/td[2]/p")));
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[2]/p"));		
-		System.out.println("w.3.1");
+		//System.out.println("w.3.1");
 		songCell.findElement(By.linkText("-")).click();
-		System.out.println("w.4");
+		//System.out.println("w.4");
 		
 		/*Check score again*/
 		int playListRowCount = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();

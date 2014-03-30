@@ -45,22 +45,22 @@ public void genreColumnMinusButton(WebDriver driver){
 		float scoreAfterFloat = 0.0f;
 		
 		/*Check score before*/
-		System.out.println("w.1");
+		//System.out.println("w.1");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[7]/td[3]")));
 		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[3]"));
-		System.out.println("w.2");
+		//System.out.println("w.2");
 		songTitle = songCell.findElement(By.tagName("a")).getText();	
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[1]"));
 		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
 		scoreBeforeFloat = Float.parseFloat(scoreBefore);
 		/*Click plus button*/
-		System.out.println("w.3");
+		//System.out.println("w.3");
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[7]/td[2]/p")));
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[2]/p"));		
-		System.out.println("w.3.1");
+		//System.out.println("w.3.1");
 		songCell.findElement(By.linkText("-")).click();
-		System.out.println("w.4");
+		//System.out.println("w.4");
 		
 		/*Check score again*/
 		int playListRowCount = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
@@ -97,7 +97,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		/*Check score before*/
 		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+playListRowCount+"]/td[3]"));
 		songTitle = songCell.findElement(By.tagName("a")).getText();		
-		System.out.println(songTitle);
+		//System.out.println(songTitle);
 		//Globals.waitForSeconds(21);
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+playListRowCount+"]/td[1]"));
 		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
@@ -106,7 +106,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+playListRowCount+"]/td[2]/p"));
 		//System.out.println("q.1");
 		songCell.findElement(By.linkText("+")).click();
-		System.out.println("q.1");
+		//System.out.println("q.1");
 		Globals.waitForSeconds(1);
 		//songCell.findElement(By.linkText("+")).click();
 		//Globals.waitForSeconds(5);
@@ -136,8 +136,8 @@ public void genreColumnMinusButton(WebDriver driver){
 		if(scoreAfterFloat > scoreBeforeFloat){
 			System.out.println("Passed -> "+testTitle);
 		}else{
-			System.out.println(scoreBeforeFloat);
-			System.out.println(scoreAfterFloat);
+			System.out.println("scoreBefore "+scoreBeforeFloat);
+			System.out.println("scoreAfter "+scoreAfterFloat);
 			System.out.println("Error in =>> "+testTitle);
         	throw new RuntimeException();
 		}
@@ -271,7 +271,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		//wait.until(ExpectedConditions.textToBePresentInElement(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]/td[3]/a"), "-10"));
 		
-		System.out.println("from ratingMinusTen: "+playingSongTitle);
+		//System.out.println("from ratingMinusTen: "+playingSongTitle);
 		//WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[7]")));
 		int rowNum = Globals.findPrefListSongRowByTitle(playingSongTitle, driver);
@@ -390,18 +390,18 @@ public void genreColumnMinusButton(WebDriver driver){
 		WebElement playingSongTitleCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[5]/td[3]"));
 		//playBtnCell.findElement(By.linkText("Play")).click();		
 		playingSongTitle = playingSongTitleCell.findElement(By.tagName("a")).getText();
-		System.out.println(playingSongTitle);
+		//System.out.println(playingSongTitle);
 		
 		WebElement playBtnCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[5]/td[5]"));
 		//playBtnCell.findElement(By.linkText("Play")).click();		
 		playBtnCell.findElement(By.tagName("a")).click();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		System.out.println("a.1");
+		//System.out.println("a.1");
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[7]")));
-		System.out.println("a.2");
+		//System.out.println("a.2");
 		int prefListCountAfter = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
-		System.out.println("a.3");
+		//System.out.println("a.3");
 		
 		
 		if(prefListCountAfter == prefListCountBefore + 1){

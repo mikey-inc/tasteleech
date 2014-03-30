@@ -542,14 +542,14 @@ public void genreColumnMinusButton(WebDriver driver){
 			//driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
 			System.out.println("2");
 			
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
-			System.out.println("2.0");//WebElement cellThree=
-			driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")).findElement(By.tagName("a")).click();;
-			System.out.println("2.1");
+			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
+			//System.out.println("2.0");//WebElement cellThree=
+			//driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")).findElement(By.tagName("a")).click();;
+			//System.out.println("2.1");
 			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
 			//cellThree.findElement(By.tagName("a")).click();
 			//driver.findElement(By.partialLinkText(cellThree.getText())).click();
-			System.out.println("2.2");
+			//System.out.println("2.2");
 			
 			
 			Globals.waitForSeconds(10);

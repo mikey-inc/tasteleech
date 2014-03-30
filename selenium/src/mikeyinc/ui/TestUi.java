@@ -1,5 +1,7 @@
 package mikeyinc.ui;
 
+import mikeyinc.utilities.Globals;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -41,7 +43,7 @@ public class TestUi {
 		
 			driver.findElement(By.linkText("hide instructions")).click();		
 			boolean instsDisplayedAfter = driver.findElement(By.id("collapseOne")).isDisplayed();
-			
+			Globals.waitForSeconds(2);
 			if(!instsDisplayedAfter){
 				System.out.println("Passed -> "+testTitle);
 			}else{

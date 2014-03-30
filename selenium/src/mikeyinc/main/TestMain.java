@@ -28,7 +28,7 @@ public class TestMain {
 			
 			tu.testTitle(Globals.ffDriver);
 			tu.playerLoad(Globals.ffDriver);
-			//tu.hideInstructions(Globals.ffDriver);
+			tu.hideInstructions(Globals.ffDriver);
 			tf.fbLogin(Globals.ffDriver);
 			tf.checkSeedAddition(Globals.ffDriver);
 			tf.getNewTracks(Globals.ffDriver);

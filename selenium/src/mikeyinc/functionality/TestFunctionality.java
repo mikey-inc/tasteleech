@@ -34,7 +34,7 @@ public class TestFunctionality {
 			System.out.println("Error in =>> "+testTitle);
         	throw new RuntimeException();
 		}		
--	}
+	}
 	
 	
 public void genreColumnMinusButton(WebDriver driver){

@@ -38,12 +38,14 @@ public class TestUi {
 		String testTitle = "Checking 'Hide Instructions' link'.";
 		
 		boolean instsDisplayedBefore = driver.findElement(By.id("collapseOne")).isDisplayed();		
-		
+		System.out.println(instsDisplayedBefore);
 		if(instsDisplayedBefore){
 		
-			driver.findElement(By.linkText("hide instructions")).click();		
+			driver.findElement(By.linkText("hide instructions")).click();	
+			Globals.waitForSeconds(2);
 			boolean instsDisplayedAfter = driver.findElement(By.id("collapseOne")).isDisplayed();
-			//Globals.waitForSeconds(5);
+			System.out.println(instsDisplayedAfter);
+			
 			if(!instsDisplayedAfter){
 				System.out.println("Passed -> "+testTitle);
 			}else{

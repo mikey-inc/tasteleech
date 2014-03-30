@@ -267,7 +267,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		int songScoreAfter = 0;
 		
 		driver.findElement(By.xpath("//button[@onclick='setCurrentTrackScore(-10);']")).click();
-		//Globals.waitForSeconds(2);//score came out zero once...replace with wait statement.
+		Globals.waitForSeconds(2);//score came out zero once...replace with wait statement.
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		//wait.until(ExpectedConditions.textToBePresentInElement(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]/td[3]/a"), "-10"));
 		

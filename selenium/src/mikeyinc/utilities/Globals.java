@@ -40,6 +40,7 @@ public class Globals {
 		//System.out.println("from globals pref count "+prefListRowCount);
 		//WebElement titleCell
 		for(int i = 1;i <= prefListRowCount; i++){
+			wait = new WebDriverWait(driver, 60);
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[1]/a")));
 			prefSongTitle=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[1]")).findElement(By.tagName("a")).getText();
 			//prefSongTitle = titleCell.findElement(By.tagName("a")).getText();

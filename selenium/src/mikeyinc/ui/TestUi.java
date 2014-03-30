@@ -1,5 +1,6 @@
 package mikeyinc.ui;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class TestUi {
@@ -27,6 +28,47 @@ public class TestUi {
         }
         /*------/This block will execute your test logic--------*/       
         
-    }	
+    }
+	
+	
+	public void hideInstructions(WebDriver driver){
+		
+		String testTitle = "Checking 'Hide Instructions' link'.";
+		
+		boolean instsDisplayedBefore = driver.findElement(By.id("collapseOne")).isDisplayed();		
+		
+		if(instsDisplayedBefore){
+		
+			driver.findElement(By.linkText("hide instructions")).click();		
+			boolean instsDisplayedAfter = driver.findElement(By.id("collapseOne")).isDisplayed();
+			
+			if(!instsDisplayedAfter){
+				System.out.println("Passed -> "+testTitle);
+			}else{
+				System.out.println("Error in =>> "+testTitle);
+	        	throw new RuntimeException();
+			}
+		
+		}
+		
+	}
+	
+	
+	public void playerLoad(WebDriver driver){
+		
+		String testTitle = "Checking if song player is loaded or not.";
+		
+		driver.switchTo().frame("sc-widget");
+		boolean playerVisible = driver.findElement(By.id("widget")).isDisplayed();
+		driver.switchTo().defaultContent();
+		if (playerVisible){
+        	System.out.println("Passed -> "+testTitle);
+        } else {        	
+        	System.out.println("Error in =>> "+testTitle);
+        	throw new RuntimeException();        
+        }
+	}
+	
+	
 
 }

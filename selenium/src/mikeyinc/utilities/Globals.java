@@ -1,8 +1,12 @@
 package mikeyinc.utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Globals {
 	
@@ -26,8 +30,31 @@ public class Globals {
 	    //wait.Until(d => (bool)(d as IJavaScriptExecutor).ExecuteScript("return jQuery.active == 0"));
 	}
 	
+	/*If zero is returned then song was not found.*/
+	public static int findPrefListSongRowByTitle(String songTitle, WebDriver driver){
+		WebDriverWait wait = new WebDriverWait(driver, 60);		
+		int row = 0;
+		//WebDriver driver = ffDriver;
+		String prefSongTitle = null;		
+		int prefListRowCount = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
+		//System.out.println("from globals pref count "+prefListRowCount);
+		//WebElement titleCell
+		for(int i = 1;i <= prefListRowCount; i++){
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[1]/a")));
+			prefSongTitle=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[1]")).findElement(By.tagName("a")).getText();
+			//prefSongTitle = titleCell.findElement(By.tagName("a")).getText();
+			//System.out.println(prefSongTitle);
+			if(prefSongTitle.equalsIgnoreCase(songTitle)){
+				//System.out.println("found in globals prefList");				
+				row = i;
+				break;
+			}
+		}
+		
+		return row;
+	}
 	
-	/*Generate random number between a range.*/
+	/*Generate random number between a range. Range is 1 to max-1.*/
 	public static int generateRandom(int max){		
 		int min = 1;
 		int random = (int)(Math.random() * (max - min)) + min;

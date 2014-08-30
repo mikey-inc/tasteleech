@@ -45,23 +45,23 @@ public void genreColumnMinusButton(WebDriver driver){
 		float scoreAfterFloat = 0.0f;
 		
 		/*Check score before*/
-		//System.out.println("w.1");
+		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[7]/td[3]")));
 		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[3]"));
-		//System.out.println("w.2");
+	
 		songTitle = songCell.findElement(By.tagName("a")).getText();	
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[1]"));
 		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
 		scoreBeforeFloat = Float.parseFloat(scoreBefore);
 		/*Click minus button*/
-		//System.out.println("w.3");
+		
 		wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[7]/td[2]/p")));
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[7]/td[2]/p"));		
-		//System.out.println("w.3.1");
+
 		songCell.findElement(By.linkText("-")).click();
-		//System.out.println("w.4");
+
 		
 		/*Check score again*/
 		int playListRowCount = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
@@ -98,36 +98,31 @@ public void genreColumnMinusButton(WebDriver driver){
 		/*Check score before*/
 		WebElement songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+playListRowCount+"]/td[3]"));
 		songTitle = songCell.findElement(By.tagName("a")).getText();		
-		//System.out.println(songTitle);
-		//Globals.waitForSeconds(21);
+
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+playListRowCount+"]/td[1]"));
 		String scoreBefore = songCell.findElement(By.tagName("a")).getText();
 		scoreBeforeFloat = Float.parseFloat(scoreBefore);
 		/*Click plus button*/
 		songCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+playListRowCount+"]/td[2]/p"));
-		//System.out.println("q.1");
+
 		songCell.findElement(By.linkText("+")).click();
-		//System.out.println("q.1");
+
 		Globals.waitForSeconds(1);
-		//songCell.findElement(By.linkText("+")).click();
-		//Globals.waitForSeconds(5);
-		//System.out.println("q.2");
+
 		/*Check score again*/
 		playListRowCount = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
 		for(int i = 1;i <= playListRowCount; i++){
-			//WebElement titleCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[3]"));
-			//playlistSongTitle = titleCell.findElement(By.tagName("a")).getText();
+
 			playlistSongTitle=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[3]")).findElement(By.tagName("a")).getText();;
 			
 			
-			//System.out.println(prefSongTitle);
+
 			if(playlistSongTitle.equalsIgnoreCase(songTitle)){
-				//System.out.println("found in playlist");
+
 				WebElement skipCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[1]"));			
 				String scoreAfter = skipCell.findElement(By.tagName("a")).getText();
 				scoreAfterFloat = Float.parseFloat(scoreAfter);
-				//System.out.println("clicked");
-				//Globals.waitForSeconds(1);
+
 				break;
 			}
 		}
@@ -157,16 +152,16 @@ public void genreColumnMinusButton(WebDriver driver){
 		
 		/*Check score before clicing.*/
 		prefListRowCount = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
-		//System.out.println("prefListRowCount "+prefListRowCount);
+
 		for(int i = 1;i <= prefListRowCount; i++){
 			WebElement titleCell=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[1]"));
 			prefSongTitle = titleCell.findElement(By.tagName("a")).getText();
-			//System.out.println(prefSongTitle);
+
 			if(prefSongTitle.equalsIgnoreCase(songTitle)){
-				//System.out.println("found in prefList");				
+	
 				scoreCell=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[3]"));
 				songScoreBefore = scoreCell.findElement(By.tagName("a")).getText();
-				//System.out.println("song score "+songScoreBefore);
+
 				break;
 			}
 		}
@@ -176,13 +171,12 @@ public void genreColumnMinusButton(WebDriver driver){
 		for(int i = 1;i <= playListRowCount; i++){
 			
 			playlistSongTitle=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[3]")).findElement(By.tagName("a")).getText();
-			//playlistSongTitle = titleCell.findElement(By.tagName("a")).getText();
-			//System.out.println(prefSongTitle);
+
 			if(playlistSongTitle.equalsIgnoreCase(songTitle)){
-				//System.out.println("found in playlist");
+
 				WebElement skipCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr["+i+"]/td[4]"));			
 				skipCell.findElement(By.linkText("0")).click();
-				//System.out.println("clicked");
+
 				Globals.waitForSeconds(1);
 				break;
 			}
@@ -192,12 +186,12 @@ public void genreColumnMinusButton(WebDriver driver){
 		for(int i = 1;i <= prefListRowCount; i++){
 			WebElement titleCell=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[1]"));
 			prefSongTitle = titleCell.findElement(By.tagName("a")).getText();
-			//System.out.println(prefSongTitle);
+
 			if(prefSongTitle.equalsIgnoreCase(songTitle)){
-				//System.out.println("found in prefList again");				
+		
 				scoreCell=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+i+"]/td[3]"));
 				songScoreAfter = scoreCell.findElement(By.tagName("a")).getText();
-				//System.out.println("song score after"+songScoreAfter);
+
 				break;
 			}
 		}
@@ -220,7 +214,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		
 		WebElement titleCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[3]/td[3]"));
 		songTitle = titleCell.findElement(By.tagName("a")).getText();
-		//System.out.println(songTitle);
+
 		
 		WebElement skipColCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[3]/td[4]"));
 		skipColCell.findElement(By.linkText("-")).click();
@@ -518,58 +512,18 @@ public void genreColumnMinusButton(WebDriver driver){
 		//rgba(189, 54, 47, 1) is red on linux. I am not sure why it sees a different hue of red on linux.
 		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)") || colorBeforeClick.equalsIgnoreCase("rgba(189, 54, 47, 1)")){
 			//Globals.waitForSeconds(10);
-			WebDriverWait wait = new WebDriverWait(driver, 20);
-			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]")));
-			//System.out.println("1.1");
-			//WebElement cellFour=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[1]/td[4]"));			
-			//driver.findElement(By.partialLinkText(cellFour.getText())).click();
-			//System.out.println("1.2");
-			//cellFour.findElement(By.tagName("a")).click();
-			
-			//driver.findElement(By.partialLinkText(cellFour.getText())).click();
-			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]")));
-			//System.out.println("4.1");
-			//WebElement cellOne=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[2]/td[4]"));		
-			//System.out.println("4.2");
-			//cellOne.findElement(By.tagName("a")).click();
-			//driver.findElement(By.partialLinkText(cellOne.getText())).click();		
-			
-			//System.out.println("5.1");
-			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]")));
-			//WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[3]/td[4]"));	
-			//cellTwo.findElement(By.tagName("a")).click();
-			//driver.findElement(By.partialLinkText(cellTwo.getText())).click();		
-			//System.out.println("2");
-			//WebElement cellTwo=driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]"));	
-			//cellTwo.findElement(By.tagName("a")).click();
-			
-			int totalRows = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();	
-			System.out.println(totalRows);
+			WebDriverWait wait = new WebDriverWait(driver, 20);								
 			WebElement cell;
-			for(int i = 0; i < 5 ; i++){
-				System.out.println(i+1);
+			for(int i = 0; i < 5 ; i++){				
 				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr["+(i+1)+"]/td[4]")));
 				cell = driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+(i+1)+"]/td[4]"));
-				cell.findElement(By.tagName("a")).click();
-				//Globals.waitForSeconds(1);
+				cell.findElement(By.tagName("a")).click();				
 			}
-			
-			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
-			//System.out.println("2.0");//WebElement cellThree=
-			//driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")).findElement(By.tagName("a")).click();;
-			//System.out.println("2.1");
-			//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
-			//cellThree.findElement(By.tagName("a")).click();
-			//driver.findElement(By.partialLinkText(cellThree.getText())).click();
-			//System.out.println("2.2");
-			
-			
+										
 			Globals.waitForSeconds(10);
-			//WebDriverWait wait = new WebDriverWait(driver, 20);
-			//wait.until(ExpectedConditions.textToBePresentInElement(By.linkText("//table[@id='prefList']/tbody/tr[4]/td[4]"), temp));
-			//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@id='prefList']/tbody/tr[4]/td[4]")));
+			
 			String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");	
-			//System.out.println("3");
+			
 			//rgba(91, 183, 91, 1) is green
 			if(colorAfterClick.equalsIgnoreCase("rgba(91, 183, 91, 1)")){
 				System.out.println("Passed -> "+testTitle);

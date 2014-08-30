@@ -239,7 +239,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr[4]/td[4]/a")));
 		driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[4]/td[4]")).findElement(By.linkText("+")).click();
-		//skipColCell.findElement(By.linkText("+")).click();
+
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[7]")));
 		
@@ -264,18 +264,15 @@ public void genreColumnMinusButton(WebDriver driver){
 		driver.findElement(By.xpath("//button[@onclick='setCurrentTrackScore(-10);']")).click();
 		Globals.waitForSeconds(2);//score came out zero once...replace with wait statement.
 		WebDriverWait wait = new WebDriverWait(driver, 20);
-		//wait.until(ExpectedConditions.textToBePresentInElement(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]/td[3]/a"), "-10"));
-		
-		//System.out.println("from ratingMinusTen: "+playingSongTitle);
-		//WebDriverWait wait = new WebDriverWait(driver, 20);
+	
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[7]")));
 		int rowNum = Globals.findPrefListSongRowByTitle(playingSongTitle, driver);
 		
 		
 		if(rowNum > 0){
-			//WebElement plusTennedSongTitleCell = driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]/td[3]")).findElement(By.tagName("a")).getText();
+
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]")));
-			//wait.until(ExpectedConditions.textToBePresentInElement(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]/td[3]/a"), "-10"));
+
 			songScoreAfter = Integer.parseInt(driver.findElement(By.xpath("//table[@id='prefList']/tbody/tr["+rowNum+"]/td[3]")).findElement(By.tagName("a")).getText());
 		}
 		
@@ -296,9 +293,9 @@ public void genreColumnMinusButton(WebDriver driver){
 		String testTitle = "Checking ratings plus one button.";
 		
 		int songScoreAfter = 0;
-		//System.out.println("m.1");
+
 		driver.findElement(By.xpath("//button[@onclick='setCurrentTrackScore(1);']")).click();
-		//System.out.println("m.2");
+
 		int rowNum = Globals.findPrefListSongRowByTitle(playingSongTitle, driver);
 		
 		
@@ -324,9 +321,9 @@ public void genreColumnMinusButton(WebDriver driver){
 		String testTitle = "Checking ratings plus ten button.";
 		
 		int songScoreAfter = 0;
-		//System.out.println("m.1");
+
 		driver.findElement(By.xpath("//button[@onclick='setCurrentTrackScore(10);']")).click();
-		//System.out.println("m.2");
+
 		int rowNum = Globals.findPrefListSongRowByTitle(playingSongTitle, driver);
 		
 		
@@ -378,25 +375,25 @@ public void genreColumnMinusButton(WebDriver driver){
 		String testTitle = "Checking if song is added to prefList when clicking Play on playlist.";
 		
 		/*Song player is present.*/
-		//Boolean isPresent = driver.findElements(By.id("playerDiv")).size() > 0;		
+	
 		
 		int prefListCountBefore = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
 		
 		WebElement playingSongTitleCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[5]/td[3]"));
-		//playBtnCell.findElement(By.linkText("Play")).click();		
+
 		playingSongTitle = playingSongTitleCell.findElement(By.tagName("a")).getText();
-		//System.out.println(playingSongTitle);
+
 		
 		WebElement playBtnCell=driver.findElement(By.xpath("//table[@id='playList']/tbody/tr[5]/td[5]"));
-		//playBtnCell.findElement(By.linkText("Play")).click();		
+
 		playBtnCell.findElement(By.tagName("a")).click();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		//System.out.println("a.1");
+
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[13]")));
-		//System.out.println("a.2");
+
 		int prefListCountAfter = driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();
-		//System.out.println("a.3");
+
 		
 		
 		if(prefListCountAfter == prefListCountBefore + 1){
@@ -414,18 +411,17 @@ public void genreColumnMinusButton(WebDriver driver){
 		String testTitle = "Checking if new tracks are fetched or not when 'Get New Tracks' is clicked.";    	
     	
     	int rowCountBefore = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
-		//System.out.println(rowCountBefore);
+
 		
 		driver.findElement(By.id("moreTracksButton")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='playList']/tbody/tr["+(rowCountBefore+1)+"]")));
     	Globals.waitForSeconds(1);
     	
-    	//String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");
-    	//System.out.println(colorAfterClick);
+
     	
     	int rowCountAfter = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
-		//System.out.println(rowCountAfter);
+
 		
 		if(rowCountAfter > rowCountBefore){
 			System.out.println("Passed -> "+testTitle);
@@ -437,23 +433,7 @@ public void genreColumnMinusButton(WebDriver driver){
     	
     	//rgba(250, 167, 50, 1) is orange
     	//rgba(81, 163, 81, 1) is green, button can be either orange or green
-    	/*if(colorAfterClick.equalsIgnoreCase("rgba(250, 167, 50, 1)") ||  colorAfterClick.equalsIgnoreCase("rgba(81, 163, 81, 1)")){
-    		
-    		int rowCountAfter = driver.findElements(By.xpath("//table[@id='playList']/tbody/tr")).size();
-    		System.out.println(rowCountAfter);
-    		
-    		if(rowCountAfter > rowCountBefore){
-    			System.out.println("Passed -> "+testTitle);
-    		}else{
-    			System.out.println("Error in =>> "+testTitle);
-            	throw new RuntimeException();
-    		}
-    		
-    		
-    	}else{
-    		System.out.println("Error in =>> "+testTitle);
-        	throw new RuntimeException();
-    	}*/
+    	
 		
 		
 	}
@@ -463,7 +443,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		String testTitle = "Checking login with facebook and fetching of liked songs.";
 		
 		driver.findElement(By.partialLinkText("Click Here To Login and Get Started")).click();
-		//Globals.waitForSeconds(4);
+
 		WebDriverWait wait = new WebDriverWait(driver, 120);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Click here to connect your Soundcloud account and complete Step 1")));
 		driver.findElement(By.partialLinkText("Click here to connect your Soundcloud account and complete Step 1")).click();
@@ -489,7 +469,7 @@ public void genreColumnMinusButton(WebDriver driver){
 		    if(someTitle.equalsIgnoreCase("Tasteleech")){		    	
 		    	
 				wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='prefList']/tbody/tr[5]")));
-		    	//Globals.waitForSeconds(20);
+
 		    	int rowCount=driver.findElements(By.xpath("//table[@id='prefList']/tbody/tr")).size();		
 				
 				if(rowCount > 0){
@@ -504,14 +484,14 @@ public void genreColumnMinusButton(WebDriver driver){
 	
 	
 	public void checkSeedAddition(WebDriver driver){
-		//System.out.println("1");
+
 		String testTitle = "Checking effect of clicking on seed songs and button color.";		
 		
 		String colorBeforeClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");		
 		//rgba(218, 79, 73, 1) is red on windows
 		//rgba(189, 54, 47, 1) is red on linux. I am not sure why it sees a different hue of red on linux.
 		if(colorBeforeClick.equalsIgnoreCase("rgba(218, 79, 73, 1)") || colorBeforeClick.equalsIgnoreCase("rgba(189, 54, 47, 1)")){
-			//Globals.waitForSeconds(10);
+
 			WebDriverWait wait = new WebDriverWait(driver, 20);								
 			WebElement cell;
 			for(int i = 0; i < 5 ; i++){				
@@ -524,7 +504,6 @@ public void genreColumnMinusButton(WebDriver driver){
 			
 			String colorAfterClick = driver.findElement(By.id("moreTracksButton")).getCssValue("background-color");	
 			
-			//rgba(91, 183, 91, 1) is green
 			if(colorAfterClick.equalsIgnoreCase("rgba(91, 183, 91, 1)")){
 				System.out.println("Passed -> "+testTitle);
 			}else{		        

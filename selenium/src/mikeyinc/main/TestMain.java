@@ -57,7 +57,7 @@ public class TestMain {
 		
 		
 		
-		WebDriver disposableDriver = new FirefoxDriver();
+		/*WebDriver disposableDriver = new FirefoxDriver();
 		try{			
 			disposableDriver.get("http://tasteleech.com");
 			tl.googleLogin(disposableDriver);			
@@ -66,12 +66,11 @@ public class TestMain {
 		}finally{
 			disposableDriver.close();
 			disposableDriver.quit();
-		}
+		}*/
 		
 		
 		
-		int rand = Globals.randInt(1,10);
-		//System.out.println(rand);
+		/*int rand = Globals.randInt(1,10);		
 		if(rand == 5){
 			WebDriver soundcloudDriver = new FirefoxDriver();
 			try{			
@@ -85,7 +84,7 @@ public class TestMain {
 			}
 		}else{
 			System.out.println("INFO   -> Scoundcloud login skipped this time. It executes once in ten builds because of the captcha problem.");
-		}
+		}*/
 		
 		
 	}

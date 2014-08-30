@@ -34,7 +34,7 @@ public class Globals {
 	
 	/*If zero is returned then song was not found.*/
 	public static int findPrefListSongRowByTitle(String songTitle, WebDriver driver){
-		WebDriverWait wait = new WebDriverWait(driver, 60);		
+		WebDriverWait wait;		
 		int row = 0;
 		//WebDriver driver = ffDriver;
 		String prefSongTitle = null;		
@@ -57,7 +57,7 @@ public class Globals {
 		return row;
 	}
 	
-	/*Generate random number between a range. Range is 1 to max-1.*/
+	/*Generate random number between a range. Ranges are inclusive.*/
 	public static int randInt(int min, int max) {
 
 	    // Usually this can be a field rather than a method variable

@@ -483,6 +483,7 @@ public void genreColumnMinusButton(WebDriver driver){
 	}
 	
 	
+	
 	public void checkSeedAddition(WebDriver driver){
 
 		String testTitle = "Checking effect of clicking on seed songs and button color.";		
